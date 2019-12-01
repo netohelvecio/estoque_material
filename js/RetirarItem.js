@@ -1,12 +1,12 @@
 $(document).ready(function() {
   $.ajax({
-    url: "../php/selectObjetoTipo.php",
+    url: "../php/selectObjeto.php",
     type: "get",
     dataType: "json",
     success: function(response) {
       if (response) {
         $.each(response, function(id, objeto) {
-          $("#objectType").append(
+          $("#objectName").append(
             $("<option>", {
               value: objeto.value,
               text: objeto.name
@@ -25,39 +25,38 @@ $(document).ready(function() {
 $("#formObject").submit(function() {
   event.preventDefault();
 
-  const objectType = $("#objectType").val();
   const objectName = $("#objectName").val();
   const objectQtd = $("#objectQtd").val();
 
-  if (objectType == -1) {
-    alert("Selecione o tipo do objeto");
-    return false;
-  }
-
-  if (objectName == "") {
-    alert("Informe o nome do objeto");
+  if (objectName == -1) {
+    alert("Selecione o objeto");
     return false;
   }
 
   if (objectQtd == "") {
-    alert("Informe a quantidade do objeto");
+    alert("Informe a quantidade a ser retirada");
     return false;
   }
 
   var dados = $(this).serialize();
 
   $.ajax({
-    url: "../php/insereObjeto.php",
+    url: "../php/updateRetirarItem.php",
     type: "post",
     dataType: "json",
     data: dados,
     success: function(response) {
       if (response) {
+        $("#msg").text("Item retirado!");
+        $("#msg").css("color", "#1d7037");
         $("#msg").show();
-        
-        $("#objectType").val(-1);
-        $("#objectName").val("");
+
+        $("#objectName").val(-1);
         $("#objectQtd").val("");
+      } else {
+        $("#msg").text("Retirada inválida! Número de estoque é inferior ao solicitado.");
+        $("#msg").css("color", "#FA0514");
+        $("#msg").show();
       }
     },
     error: function(request, status, error) {

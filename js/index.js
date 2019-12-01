@@ -18,6 +18,8 @@ $("#formObject").submit(function() {
     success: function(response) {
       if (response) {
         $("#msg").show();
+        
+        $("#objectType").val("");
       }
     },
     error: function(request, status, error) {

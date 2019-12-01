@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Cadastrar tipo de objeto</title>
+    <title>Retirar Item</title>
 
     <!-- Bootstrap -->
     <link
@@ -29,7 +29,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -51,17 +51,17 @@
               Cadastrar
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a href="index.html">Tipo de objeto</a>
-              <a href="pages/CadastrarObjeto.html">Objeto</a>
+              <a href="../index.html">Tipo de objeto</a>
+              <a href="CadastrarObjeto.html">Objeto</a>
             </div>
           </li>
-          <a class="nav-item nav-link" href="pages/RetirarItem.html"
+          <a class="nav-item nav-link" href="RetirarItem.html"
             >Retirada de item</a
           >
-          <a class="nav-item nav-link" href="pages/EntradaItem.html"
+          <a class="nav-item nav-link" href="EntradaItem.html"
             >Entrada de item</a
           >
-          <a class="nav-item nav-link" href="pages/Relatorio.html"
+          <a class="nav-item nav-link" href="Relatorio.html"
             >Relatório de estoque</a
           >
         </div>
@@ -69,18 +69,28 @@
     </nav>
 
     <div class="div-form">
-      <h1>Cadastrar tipo de objeto</h1>
+      <h1>Retirar item</h1>
 
       <form id="formObject">
-        <label for="objectType">Tipo de objeto: </label>
-        <input type="text" id="objectType" name="objectType" />
+        <div class="form-group">
+          <label for="objectName">Objeto: </label>
+          <select id="objectName" name="objectName">
+            <option value="-1" selected >Selecione...</option>
+          </select>
+        </div>
 
-        <button type="submit" class="button-small">Enviar</button>
+        <div class="form-group">
+          <label for="objectQtd">Quantidade: </label>
+          <input type="number" id="objectQtd" name="objectQtd" />
+        </div>
+
+        <div class="form-btn">
+          <button type="submit">Retirar</button>
+        </div>
       </form>
 
-      <span id="msg">Tipo de objeto cadastrado!</span>
+      <span id="msg"></span>
     </div>
-
-    <script src="js/index.js"></script>
+    <script src="../js/RetirarItem.js"></script>
   </body>
 </html>
