@@ -23,6 +23,9 @@
 
     $sql = "UPDATE `estoque_db`.`object` SET `object_qtd` = $qtd WHERE `object_id` = $objectName;";
     $resultado = mysqli_query($conn, $sql);
+    
+    $sql = "INSERT INTO `estoque_db`.`registry_exit` (`exit_qtd`,`object_id`) VALUES ($objectQtd, $objectName);";
+    $resultado_insert = mysqli_query($conn, $sql);
   }
   
   echo json_encode($update);

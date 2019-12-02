@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Cadastrar tipo de objeto</title>
+    <title>Registro</title>
 
     <!-- Bootstrap -->
     <link
@@ -29,10 +29,22 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- DATATABLES -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"
+    />
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"
+    ></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg">
@@ -51,39 +63,65 @@
               Cadastrar
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a href="index.html">Tipo de objeto</a>
-              <a href="pages/CadastrarObjeto.html">Objeto</a>
+              <a href="../index.html">Tipo de objeto</a>
+              <a href="CadastrarObjeto.html">Objeto</a>
             </div>
           </li>
-          <a class="nav-item nav-link" href="pages/RetirarItem.html"
+          <a class="nav-item nav-link" href="RetirarItem.html"
             >Retirada de item</a
           >
-          <a class="nav-item nav-link" href="pages/EntradaItem.html"
+          <a class="nav-item nav-link" href="EntradaItem.html"
             >Entrada de item</a
           >
-          <a class="nav-item nav-link" href="pages/Relatorio.html"
+          <a class="nav-item nav-link" href="Relatorio.html"
             >Relatório de estoque</a
           >
-          <a class="nav-item nav-link" href="pages/Registro.html"
+          <a class="nav-item nav-link" href="Registro.html"
             >Registro Entrada/Saída</a
           >
         </div>
       </div>
     </nav>
 
-    <div class="div-form">
-      <h1>Cadastrar tipo de objeto</h1>
+    <div class="div-table">
+      <h1>Registro entrada</h1>
 
-      <form id="formObject">
-        <label for="objectType">Tipo de objeto: </label>
-        <input type="text" id="objectType" name="objectType" />
+      <h2 id="loadingEntrada">Carregando...</h2>
 
-        <button type="submit" class="button-small">Enviar</button>
-      </form>
+      <table class="table table-hover table-striped table-bordered" id="tableEntrada">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Objeto</th>
+            <th>Quantidade de Entrada</th>
+            <th>Data de Entrada</th>
+          </tr>
+        </thead>
 
-      <span id="msg">Tipo de objeto cadastrado!</span>
+        <tbody>
+        </tbody>
+      </table>
     </div>
 
-    <script src="js/index.js"></script>
+    <div style="border-top: 1px solid black;" class="div-table">
+      <h1>Registro saída</h1>
+
+      <h2 id="loadingSaida">Carregando...</h2>
+
+      <table class="table table-hover table-striped table-bordered" id="tableSaida">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Objeto</th>
+            <th>Quantidade de Saída</th>
+            <th>Data de Saída</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <script src="../js/Resgistro.js"></script>
   </body>
 </html>
